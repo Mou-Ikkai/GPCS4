@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Compile Master
 
 on:
   push:
@@ -26,7 +26,10 @@ jobs:
         vulkan-query-version: 1.3.204.1
         vulkan-components: Vulkan-Headers, Vulkan-Loader, SPIRV-Cross, SPIRV-Tools, SPIRV-Reflect, SPIRV-Headers
         vulkan-use-cache: true
-    - name: Compile 3rdParty Libs
-      working-directory: ./GPCS4/
-      run: | 
-        cl GPCS4Main.cpp
+    - name: Build project
+      uses: nicledomaS/cmake_build_action@v1.4
+      with:
+        submodule_update: ON
+        run_tests: ON
+        unit_test_build: -Dtest=ON
+        config: Debug
