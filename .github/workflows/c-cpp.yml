@@ -8,16 +8,24 @@ on:
 
 jobs:
   build:
-
+    strategy:
+      matrix:
+        arch:
+          - amd64
+        vsversion: 
+          - 2022
     runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - name: Enable Developer Command Prompt MSVC
+      uses: ilammy/msvc-dev-cmd@v1.11.0
+    - name: Setup Vulkan SDK
+      uses: humbletim/setup-vulkan-sdk@v1.2.0
+      with:
+        vulkan-query-version: 1.3.204.1
+        vulkan-components: Vulkan-Headers, Vulkan-Loader, SPIRV-Cross, SPIRV-Tools, SPIRV-Reflect, SPIRV-Headers
+        vulkan-use-cache: true
+    - name: Compile 3rdParty Libs
+      run: | 
+        cl /GPCS4/GPCS4Main.cpp
