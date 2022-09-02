@@ -27,5 +27,6 @@ jobs:
         vulkan-components: Vulkan-Headers, Vulkan-Loader, SPIRV-Cross, SPIRV-Tools, SPIRV-Reflect, SPIRV-Headers
         vulkan-use-cache: true
     - name: Compile 3rdParty Libs
+      working-directory: ./GPCS4/
       run: | 
-        cl /GPCS4/GPCS4Main.cpp
+        cl GPCS4Main.cpp
