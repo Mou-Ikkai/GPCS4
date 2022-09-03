@@ -39,10 +39,6 @@ jobs:
     - name: Compile Prerequsites (RTAUDIO)
       working-directory: ./3rdParty/rtaudio/msvc/
       run: msbuild rtaudio.vcxproj
-      
-    - name: Compile Prerequsites (TINYDBR)
-      working-directory: ./3rdParty/tinydbr/
-      run: msbuild TinyDBR.vcxproj
     
     - name: Compile Prerequsites (WINPTHREADS)
       working-directory: ./3rdParty/winpthreads/
@@ -52,5 +48,9 @@ jobs:
       working-directory: ./3rdParty/zydis/msvc/
       run: msbuild Zydis.sln
     
+    - name: Compile Prerequsites (TINYDBR)
+      working-directory: ./3rdParty/tinydbr/
+      run: msbuild TinyDBR.vcxproj
+      
     - name: Compile GPCS4.
       run: msbuild GPCS4.sln
