@@ -28,27 +28,27 @@ jobs:
         vulkan-components: Vulkan-Headers, Vulkan-Loader, Glslang, SPIRV-Cross, SPIRV-Tools, SPIRV-Reflect, SPIRV-Headers
         vulkan-use-cache: true
 
-    - name: Compile Prerequsites (FMT)
+    - name: Compile Prerequisites (FMT)
       working-directory: ./3rdParty/fmt/
       run: msbuild fmt.vcxproj
       
-    - name: Compile Prerequsites (GLFW3)
+    - name: Compile Prerequisites (GLFW3)
       working-directory: ./3rdParty/glfw/src/
       run: msbuild glfw.vcxproj
       
-    - name: Compile Prerequsites (RTAUDIO)
+    - name: Compile Prerequisites (RTAUDIO)
       working-directory: ./3rdParty/rtaudio/msvc/
       run: msbuild rtaudio.vcxproj
     
-    - name: Compile Prerequsites (WINPTHREADS)
+    - name: Compile Prerequisites (WINPTHREADS)
       working-directory: ./3rdParty/winpthreads/
       run: msbuild winpthreads.vcxproj
     
-    - name: Compile Prerequsites (ZYDIS)
+    - name: Compile Prerequisites (ZYDIS)
       working-directory: ./3rdParty/zydis/msvc/
       run: msbuild Zydis.sln
     
-    - name: Compile Prerequsites (TINYDBR)
+    - name: Compile Prerequisites (TINYDBR)
       working-directory: ./3rdParty/tinydbr/
       run: msbuild TinyDBR.vcxproj
       
